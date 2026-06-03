@@ -81,7 +81,7 @@ function isValidSupabaseConfig(url: string, key: string): boolean {
   }
   
   // Ignore general live application URLs
-  if (u.includes('asia-east1.run.app') || u.includes('aistudio-preview.run.app')) {
+  if (u.includes('.run.app') || u.includes('aistudio-preview.run.app')) {
     return false;
   }
   

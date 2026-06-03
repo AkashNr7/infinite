@@ -29,7 +29,7 @@ export function getApiUrl(path: string): string {
 
     if (isCapacitorPlugin || isCapacitorScheme || isWebViewHost) {
       // Connect mobile client directly to the live deployed cloud server of this applet
-      const liveCloudServer = 'https://ais-dev-dqt3vll3nc77uy5zb6mtrg-855841844563.asia-east1.run.app';
+      const liveCloudServer = 'https://ais-pre-dzyvhzwunjmz4ap4pswblq-119708154136.asia-southeast1.run.app';
       return `${liveCloudServer}${cleanPath}`;
     }
   }
