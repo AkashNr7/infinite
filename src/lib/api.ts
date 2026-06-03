@@ -35,8 +35,8 @@ export function getApiUrl(path: string): string {
         return `${trimmed}${cleanPath}`;
       }
       
-      // Connect mobile client directly to the live active development cloud server of this applet
-      const liveCloudServer = 'https://ais-dev-dzyvhzwunjmz4ap4pswblq-119708154136.asia-southeast1.run.app';
+      // Connect mobile client directly to the live production server on Cloud Run
+      const liveCloudServer = 'https://remix-billing-inventory-management-system-641549369794.asia-southeast1.run.app';
       return `${liveCloudServer}${cleanPath}`;
     }
   }

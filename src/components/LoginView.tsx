@@ -288,13 +288,13 @@ export default function LoginView({ onLoginSuccess }: LoginViewProps) {
             className="mt-3 bg-white p-5 border border-slate-200 shadow-xs rounded-[10px] text-left mx-4 sm:mx-0"
           >
             <h4 className="text-xs font-bold text-slate-850 flex items-center gap-1.5 mb-2">
-              <Server className="h-4 w-4 text-blue-600" />
+              <Server className="h-4 w-4 text-emerald-600" />
               API Server Path Setup (For Mobile App)
             </h4>
             <p className="text-[11px] text-slate-500 leading-relaxed mb-3">
-              By default, the phone app connects to your active dev environment:
-              <code className="block mt-1 bg-slate-50 p-1.5 rounded-sm text-[10px] text-slate-700 font-mono select-all overflow-x-auto whitespace-nowrap">
-                https://ais-dev-dzyvhzwunjmz4ap4pswblq-119708154136.asia-southeast1.run.app
+              By default, the phone app connects to your live Production Cloud Run server:
+              <code className="block mt-1 bg-slate-50 p-1.5 rounded-sm text-[10px] text-slate-700 font-mono select-all overflow-x-auto whitespace-nowrap border border-slate-100">
+                https://remix-billing-inventory-management-system-641549369794.asia-southeast1.run.app
               </code>
             </p>
 
@@ -308,11 +308,20 @@ export default function LoginView({ onLoginSuccess }: LoginViewProps) {
                   <button
                     type="button"
                     onClick={() => {
+                      setCustomApiUrl('https://remix-billing-inventory-management-system-641549369794.asia-southeast1.run.app');
+                    }}
+                    className="px-2 py-1 bg-emerald-50 hover:bg-emerald-100 text-emerald-700 rounded-[6px] border border-emerald-200 text-[10px] font-semibold transition-all cursor-pointer"
+                  >
+                    Set to Production Cloud Run
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => {
                       setCustomApiUrl('https://ais-dev-dzyvhzwunjmz4ap4pswblq-119708154136.asia-southeast1.run.app');
                     }}
                     className="px-2 py-1 bg-slate-50 hover:bg-slate-100 text-slate-600 rounded-[6px] border border-slate-200 text-[10px] font-semibold transition-all cursor-pointer"
                   >
-                    Set to Development Url
+                    Set to Dev Server
                   </button>
                   <button
                     type="button"
@@ -321,7 +330,7 @@ export default function LoginView({ onLoginSuccess }: LoginViewProps) {
                     }}
                     className="px-2 py-1 bg-blue-50 hover:bg-blue-100 text-blue-700 rounded-[6px] border border-blue-200 text-[10px] font-semibold transition-all cursor-pointer"
                   >
-                    Set to Shared/Preview Url
+                    Set to Shared Applet
                   </button>
                 </div>
               </div>
