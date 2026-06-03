@@ -18,6 +18,7 @@ import {
   RefreshCw
 } from 'lucide-react';
 import { User as UserType } from '../types';
+import { getApiUrl } from '../lib/api';
 
 interface ChangePasswordModalProps {
   token: string;
@@ -65,7 +66,7 @@ export default function ChangePasswordModal({ token, user, isOpen, onClose }: Ch
     try {
       setLoadingUsers(true);
       setErrorMsg(null);
-      const res = await fetch('/api/users', {
+      const res = await fetch(getApiUrl('/api/users'), {
         headers: { Authorization: `Bearer ${token}` }
       });
       const data = await res.json();
@@ -127,7 +128,7 @@ export default function ChangePasswordModal({ token, user, isOpen, onClose }: Ch
     setSuccessMsg(null);
 
     try {
-      const res = await fetch('/api/auth/change-password', {
+      const res = await fetch(getApiUrl('/api/auth/change-password'), {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -178,7 +179,7 @@ export default function ChangePasswordModal({ token, user, isOpen, onClose }: Ch
     setSuccessMsg(null);
 
     try {
-      const res = await fetch('/api/auth/admin/change-user-password', {
+      const res = await fetch(getApiUrl('/api/auth/admin/change-user-password'), {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

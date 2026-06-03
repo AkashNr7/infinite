@@ -5,7 +5,7 @@
 
 import React, { useState } from 'react';
 import { motion } from 'motion/react';
-import { Shield, Lock, User, Eye, EyeOff, Building2, KeyRound } from 'lucide-react';
+import { Shield, Lock, User, Eye, EyeOff, Building2, KeyRound, Server, Check, RotateCcw } from 'lucide-react';
 import { User as UserType } from '../types';
 import { getApiUrl } from '../lib/api';
 
@@ -24,6 +24,34 @@ export default function LoginView({ onLoginSuccess }: LoginViewProps) {
   const [forgotSuccessMsg, setForgotSuccessMsg] = useState<string | null>(null);
   const [forgotErrorMsg, setForgotErrorMsg] = useState<string | null>(null);
   const [forgotLoading, setForgotLoading] = useState(false);
+
+  // Connection controls state overrides
+  const [showServerSettings, setShowServerSettings] = useState(false);
+  const [customApiUrl, setCustomApiUrl] = useState(() => {
+    if (typeof window !== 'undefined') {
+      return localStorage.getItem('CUSTOM_API_URL') || '';
+    }
+    return '';
+  });
+  const [isUrlSaved, setIsUrlSaved] = useState(false);
+
+  const handleSaveApiUrl = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (customApiUrl.trim() === '') {
+      localStorage.removeItem('CUSTOM_API_URL');
+    } else {
+      localStorage.setItem('CUSTOM_API_URL', customApiUrl.trim());
+    }
+    setIsUrlSaved(true);
+    setTimeout(() => setIsUrlSaved(false), 2000);
+  };
+
+  const handleResetApiUrl = () => {
+    localStorage.removeItem('CUSTOM_API_URL');
+    setCustomApiUrl('');
+    setIsUrlSaved(true);
+    setTimeout(() => setIsUrlSaved(false), 2000);
+  };
 
   // Quick account switcher helper
   const handleQuickFill = (role: 'admin' | 'staff') => {
@@ -240,6 +268,73 @@ export default function LoginView({ onLoginSuccess }: LoginViewProps) {
             </div>
           </div>
         </motion.div>
+      </div>
+
+      {/* Connection setup for mobile / Capacitor applets */}
+      <div className="mt-4 sm:mx-auto sm:w-full sm:max-w-md text-center">
+        <button
+          type="button"
+          onClick={() => setShowServerSettings(!showServerSettings)}
+          className="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-550 hover:text-slate-850 transition-colors cursor-pointer"
+        >
+          <Server className="h-3.5 w-3.5" />
+          {showServerSettings ? 'Hide dev server connection options' : 'Mobile dev server connection options'}
+        </button>
+
+        {showServerSettings && (
+          <motion.div
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="mt-3 bg-white p-5 border border-slate-200 shadow-xs rounded-[10px] text-left mx-4 sm:mx-0"
+          >
+            <h4 className="text-xs font-bold text-slate-850 flex items-center gap-1.5 mb-2">
+              <Server className="h-4 w-4 text-blue-600" />
+              API Server Path Setup (For Mobile App)
+            </h4>
+            <p className="text-[11px] text-slate-500 leading-relaxed mb-3">
+              By default, the phone app connects to your active dev environment:
+              <code className="block mt-1 bg-slate-50 p-1.5 rounded-sm text-[10px] text-slate-700 font-mono select-all overflow-x-auto whitespace-nowrap">
+                https://ais-dev-dzyvhzwunjmz4ap4pswblq-119708154136.asia-southeast1.run.app
+              </code>
+            </p>
+
+            <form onSubmit={handleSaveApiUrl} className="space-y-3">
+              <div>
+                <label className="block text-[10px] font-bold text-slate-700 mb-1">
+                  Custom Server URL Override
+                </label>
+                <div className="flex gap-2">
+                  <input
+                    type="url"
+                    placeholder="e.g. https://ais-pre-...asia-southeast1.run.app"
+                    value={customApiUrl}
+                    onChange={(e) => setCustomApiUrl(e.target.value)}
+                    className="block w-full px-2.5 py-1.5 border border-slate-200 rounded-[10px] text-xs font-mono text-slate-800 bg-slate-50 focus:bg-white"
+                  />
+                  <button
+                    type="submit"
+                    className="flex-shrink-0 bg-blue-600 hover:bg-blue-700 text-white px-3 py-1.5 rounded-[10px] font-semibold transition-all text-xs cursor-pointer"
+                  >
+                    {isUrlSaved ? 'Saved!' : 'Save'}
+                  </button>
+                  {customApiUrl && (
+                    <button
+                      type="button"
+                      onClick={handleResetApiUrl}
+                      className="flex-shrink-0 border border-slate-200 hover:bg-slate-50 text-slate-500 px-3 py-1.5 rounded-[10px] font-medium transition-all text-xs cursor-pointer"
+                      title="Reset to default"
+                    >
+                      <RotateCcw className="h-4 w-4" />
+                    </button>
+                  )}
+                </div>
+              </div>
+              <p className="text-[10px] text-slate-400 leading-normal">
+                Leave override empty to use the active dev server. Changes apply instantly to mobile app. No need to re-install.
+              </p>
+            </form>
+          </motion.div>
+        )}
       </div>
 
       {/* Simulated Forgot Password Modal */}

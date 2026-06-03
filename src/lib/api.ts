@@ -28,8 +28,15 @@ export function getApiUrl(path: string): string {
     const isWebViewHost = loc.hostname === 'localhost' && (loc.port === '' || loc.port === '80');
 
     if (isCapacitorPlugin || isCapacitorScheme || isWebViewHost) {
-      // Connect mobile client directly to the live deployed cloud server of this applet
-      const liveCloudServer = 'https://ais-pre-dzyvhzwunjmz4ap4pswblq-119708154136.asia-southeast1.run.app';
+      // Allow overriding the API server URL dynamically for convenient developer testing
+      const customApiUrl = localStorage.getItem('CUSTOM_API_URL');
+      if (customApiUrl && customApiUrl.trim() !== '') {
+        const trimmed = customApiUrl.trim().replace(/\/$/, '');
+        return `${trimmed}${cleanPath}`;
+      }
+      
+      // Connect mobile client directly to the live active development cloud server of this applet
+      const liveCloudServer = 'https://ais-dev-dzyvhzwunjmz4ap4pswblq-119708154136.asia-southeast1.run.app';
       return `${liveCloudServer}${cleanPath}`;
     }
   }
