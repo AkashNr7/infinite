@@ -258,6 +258,19 @@ function verifySessionToken(token: string): { id: string; role: string; username
 // Express Parsers
 app.use(express.json());
 
+// Enable CORS for web views / packaged Capacitor mobile apps
+app.use((req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization, X-Requested-With');
+  
+  if (req.method === 'OPTIONS') {
+    res.sendStatus(200);
+    return;
+  }
+  next();
+});
+
 // Initialize Database structure
 interface DBStructure {
   users: Array<{ id: string; username: string; email: string; passwordHash: string; role: 'admin' | 'staff'; created_at: string }>;
