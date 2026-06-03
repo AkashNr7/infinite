@@ -1,0 +1,8 @@
+{
+  "name": "Remix: Billing \u0026 Inventory Management System",
+  "description": "A complete smart billing, inventory, and sales reporting system for small businesses.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

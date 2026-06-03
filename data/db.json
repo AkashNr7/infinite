@@ -1,0 +1,339 @@
+{
+  "users": [
+    {
+      "id": "u1",
+      "username": "admin",
+      "email": "admin@example.com",
+      "passwordHash": "240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9",
+      "role": "admin",
+      "created_at": "2026-05-01T00:00:00.000Z"
+    },
+    {
+      "id": "u2",
+      "username": "staff",
+      "email": "staff@example.com",
+      "passwordHash": "10176e7b7b24d317acfcf8d2064cfd2f24e154f7b5a96603077d5ef813d6a6b6",
+      "role": "staff",
+      "created_at": "2026-05-02T00:00:00.000Z"
+    }
+  ],
+  "products": [
+    {
+      "id": "p1",
+      "name": "iPhone 15 Pro Max",
+      "category": "Electronics",
+      "price": 1199,
+      "stock": 10,
+      "description": "Apple iPhone 15 Pro Max 256GB Titanium",
+      "created_at": "2026-05-10T00:00:00.000Z"
+    },
+    {
+      "id": "p2",
+      "name": "Logitech MX Master 3S",
+      "category": "Accessories",
+      "price": 99.99,
+      "stock": 35,
+      "description": "Ergonomic high precision wireless office mouse",
+      "created_at": "2026-05-11T00:00:00.000Z"
+    },
+    {
+      "id": "p3",
+      "name": "Sony WH-1000XM5",
+      "category": "Electronics",
+      "price": 348,
+      "stock": 3,
+      "description": "Premium active noise cancelling over-ear headphones",
+      "created_at": "2026-05-12T00:00:00.000Z"
+    },
+    {
+      "id": "p4",
+      "name": "USB-C hub 8-in-1",
+      "category": "Accessories",
+      "price": 45,
+      "stock": 24,
+      "description": "Aluminium multi-port adaptor for laptops",
+      "created_at": "2026-05-12T00:00:00.000Z"
+    },
+    {
+      "id": "p5",
+      "name": "Samsung Ultra-Wide 34\"",
+      "category": "Electronics",
+      "price": 449.99,
+      "stock": 2,
+      "description": "34-inch curved monitor 144Hz WQHD",
+      "created_at": "2026-05-13T00:00:00.000Z"
+    },
+    {
+      "id": "p6",
+      "name": "Mechanical Keyboard RGB",
+      "category": "Accessories",
+      "price": 129.5,
+      "stock": 15,
+      "description": "Hot-swappable mechanical tactile brown switch keyboard",
+      "created_at": "2026-05-14T00:00:00.000Z"
+    },
+    {
+      "id": "p7",
+      "name": "Anker PowerCore 20K",
+      "category": "Accessories",
+      "price": 49.99,
+      "stock": 1,
+      "description": "20,000mAh external laptop power bank battery",
+      "created_at": "2026-05-15T00:00:00.000Z"
+    }
+  ],
+  "customers": [
+    {
+      "id": "c1",
+      "name": "John Doe",
+      "phone": "555-010-2394",
+      "email": "john@example.com",
+      "address": "123 Pinecrest Lane, Seattle, WA 98101",
+      "created_at": "2026-05-11T00:00:00.000Z"
+    },
+    {
+      "id": "c2",
+      "name": "Sarah Jenkins",
+      "phone": "555-015-8833",
+      "email": "sarah.j@example.com",
+      "address": "456 Redwood Blvd, San Francisco, CA 94107",
+      "created_at": "2026-05-15T00:00:00.000Z"
+    },
+    {
+      "id": "c3",
+      "name": "Michael Ramirez",
+      "phone": "555-018-4722",
+      "email": "michael@ramirez.io",
+      "address": "789 Oakwood Circle, Austin, TX 78701",
+      "created_at": "2026-05-20T00:00:00.000Z"
+    },
+    {
+      "id": "c4",
+      "name": "Samantha Vance",
+      "phone": "555-019-3311",
+      "email": "svance@finance.corp",
+      "address": "109 Wall St, Floor 14, New York, NY 10005",
+      "created_at": "2026-05-25T00:00:00.000Z"
+    }
+  ],
+  "invoices": [
+    {
+      "id": "i1",
+      "invoice_no": "INV-1001",
+      "customer_id": "c1",
+      "customer_name": "John Doe",
+      "customer_phone": "555-010-2394",
+      "subtotal": 1298.99,
+      "tax": 107.17,
+      "discount": 10,
+      "total": 1276.26,
+      "payment_status": "paid",
+      "payment_method": "card",
+      "created_at": "2026-05-30T00:00:00.000Z"
+    },
+    {
+      "id": "i2",
+      "invoice_no": "INV-1002",
+      "customer_id": "c2",
+      "customer_name": "Sarah Jenkins",
+      "customer_phone": "555-015-8833",
+      "subtotal": 348,
+      "tax": 28.71,
+      "discount": 0,
+      "total": 376.71,
+      "payment_status": "paid",
+      "payment_method": "upi",
+      "created_at": "2026-05-31T00:00:00.000Z"
+    },
+    {
+      "id": "i3",
+      "invoice_no": "INV-1003",
+      "customer_id": "c3",
+      "customer_name": "Michael Ramirez",
+      "customer_phone": "555-018-4722",
+      "subtotal": 585,
+      "tax": 48.26,
+      "discount": 5,
+      "total": 604.01,
+      "payment_status": "paid",
+      "payment_method": "cash",
+      "created_at": "2026-06-01T00:00:00.000Z"
+    },
+    {
+      "id": "i4",
+      "invoice_no": "INV-1004",
+      "customer_id": "c1",
+      "customer_name": "John Doe",
+      "customer_phone": "555-010-2394",
+      "subtotal": 99.99,
+      "tax": 8.25,
+      "discount": 0,
+      "total": 108.24,
+      "payment_status": "unpaid",
+      "payment_method": "cash",
+      "created_at": "2026-06-02T00:00:00.000Z"
+    },
+    {
+      "id": "i5",
+      "invoice_no": "INV-1005",
+      "customer_id": "c4",
+      "customer_name": "Samantha Vance",
+      "customer_phone": "555-019-3311",
+      "subtotal": 129.5,
+      "tax": 10.68,
+      "discount": 15,
+      "total": 120.76,
+      "payment_status": "paid",
+      "payment_method": "upi",
+      "created_at": "2026-06-03T00:00:00.000Z"
+    },
+    {
+      "id": "inv_10a3537b",
+      "invoice_no": "INV-1006",
+      "customer_id": "c1",
+      "customer_name": "John Doe",
+      "customer_phone": "555-010-2394",
+      "subtotal": 2398,
+      "tax": 197.84,
+      "discount": 0,
+      "total": 2595.84,
+      "payment_status": "paid",
+      "payment_method": "cash",
+      "created_at": "2026-06-03T06:07:34.353Z"
+    }
+  ],
+  "invoice_items": [
+    {
+      "id": "ii1",
+      "invoice_id": "i1",
+      "product_id": "p1",
+      "product_name": "iPhone 15 Pro Max",
+      "quantity": 1,
+      "price": 1199,
+      "subtotal": 1199
+    },
+    {
+      "id": "ii2",
+      "invoice_id": "i1",
+      "product_id": "p2",
+      "product_name": "Logitech MX Master 3S",
+      "quantity": 1,
+      "price": 99.99,
+      "subtotal": 99.99
+    },
+    {
+      "id": "ii3",
+      "invoice_id": "i2",
+      "product_id": "p3",
+      "product_name": "Sony WH-1000XM5",
+      "quantity": 1,
+      "price": 348,
+      "subtotal": 348
+    },
+    {
+      "id": "ii4",
+      "invoice_id": "i3",
+      "product_id": "p5",
+      "product_name": "Samsung Ultra-Wide 34\"",
+      "quantity": 1,
+      "price": 449.99,
+      "subtotal": 449.99
+    },
+    {
+      "id": "ii5",
+      "invoice_id": "i3",
+      "product_id": "p6",
+      "product_name": "Mechanical Keyboard RGB",
+      "quantity": 1,
+      "price": 129.5,
+      "subtotal": 129.5
+    },
+    {
+      "id": "ii6",
+      "invoice_id": "i3",
+      "product_id": "p4",
+      "product_name": "USB-C hub 8-in-1",
+      "quantity": 2,
+      "price": 45,
+      "subtotal": 90
+    },
+    {
+      "id": "ii7",
+      "invoice_id": "i4",
+      "product_id": "p2",
+      "product_name": "Logitech MX Master 3S",
+      "quantity": 1,
+      "price": 99.99,
+      "subtotal": 99.99
+    },
+    {
+      "id": "ii8",
+      "invoice_id": "i5",
+      "product_id": "p6",
+      "product_name": "Mechanical Keyboard RGB",
+      "quantity": 1,
+      "price": 129.5,
+      "subtotal": 129.5
+    },
+    {
+      "id": "ii_ea1cca9d",
+      "invoice_id": "inv_10a3537b",
+      "product_id": "p1",
+      "product_name": "iPhone 15 Pro Max",
+      "quantity": 2,
+      "price": 1199,
+      "subtotal": 2398
+    }
+  ],
+  "payments": [
+    {
+      "id": "pay1",
+      "invoice_id": "i1",
+      "invoice_no": "INV-1001",
+      "amount": 1276.26,
+      "payment_method": "card",
+      "payment_date": "2026-05-30T00:00:00.000Z"
+    },
+    {
+      "id": "pay2",
+      "invoice_id": "i2",
+      "invoice_no": "INV-1002",
+      "amount": 376.71,
+      "payment_method": "upi",
+      "payment_date": "2026-05-31T00:00:00.000Z"
+    },
+    {
+      "id": "pay3",
+      "invoice_id": "i3",
+      "invoice_no": "INV-1003",
+      "amount": 604.01,
+      "payment_method": "cash",
+      "payment_date": "2026-06-01T00:00:00.000Z"
+    },
+    {
+      "id": "pay4",
+      "invoice_id": "i5",
+      "invoice_no": "INV-1005",
+      "amount": 120.76,
+      "payment_method": "upi",
+      "payment_date": "2026-06-03T00:00:00.000Z"
+    },
+    {
+      "id": "pay_04eea2b0",
+      "invoice_id": "inv_10a3537b",
+      "invoice_no": "INV-1006",
+      "amount": 2595.84,
+      "payment_method": "cash",
+      "payment_date": "2026-06-03T06:07:34.353Z"
+    }
+  ],
+  "settings": {
+    "companyName": "Apex Retail Solutions",
+    "companyAddress": "101 Business Park, Suite A, New York, NY 10001",
+    "companyPhone": "+1 (555) 019-9000",
+    "companyEmail": "billing@apexsolutions.com",
+    "companyTaxNo": "US-8833928-TX",
+    "taxRate": 8.25,
+    "currency": "₹"
+  }
+}

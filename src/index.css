@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&family=JetBrains+Mono:ital,wght@0,400;0,500;0,700;1,400&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+@layer utilities {
+  /* Hide scrollbars but preserve scrolling */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
+
+  /* Custom Print Directives */
+  @media print {
+    body {
+      background: white !important;
+      color: black !important;
+      padding: 0 !important;
+      margin: 0 !important;
+    }
+    aside, header, button, .print\:hidden {
+      display: none !important;
+    }
+    main {
+      padding: 0 !important;
+      margin: 0 !important;
+      width: 100% !important;
+    }
+    .pl-64 {
+      padding-left: 0 !important;
+    }
+    .invoice-print-container {
+      border: none !important;
+      box-shadow: none !important;
+      padding: 0 !important;
+      margin: 0 !important;
+      width: 100% !important;
+    }
+    /* Stop multi page page breaks mid-element */
+    .print\:break-inside-avoid {
+      break-inside: avoid !important;
+    }
+  }
+}
+
