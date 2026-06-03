@@ -45,6 +45,13 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-gradle-
 
+      - name: Regenerate Gradle Wrapper
+        working-directory: android
+        run: |
+          gradle wrapper --gradle-version 8.14.3 || \
+          wget -O gradle/wrapper/gradle-wrapper.jar https://raw.githubusercontent.com/gradle/gradle/v8.14.3/gradle/wrapper/gradle-wrapper.jar || \
+          curl -sLo gradle/wrapper/gradle-wrapper.jar https://raw.githubusercontent.com/gradle/gradle/v8.14.3/gradle/wrapper/gradle-wrapper.jar
+
       - name: Make Gradle Wrapper Executable
         run: chmod +x android/gradlew
 
