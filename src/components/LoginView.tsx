@@ -299,6 +299,33 @@ export default function LoginView({ onLoginSuccess }: LoginViewProps) {
             </p>
 
             <form onSubmit={handleSaveApiUrl} className="space-y-3">
+              {/* Quick Presets */}
+              <div>
+                <label className="block text-[10px] font-bold text-slate-650 mb-1">
+                  Connect Quickly:
+                </label>
+                <div className="flex flex-wrap gap-1.5 mb-2">
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setCustomApiUrl('https://ais-dev-dzyvhzwunjmz4ap4pswblq-119708154136.asia-southeast1.run.app');
+                    }}
+                    className="px-2 py-1 bg-slate-50 hover:bg-slate-100 text-slate-600 rounded-[6px] border border-slate-200 text-[10px] font-semibold transition-all cursor-pointer"
+                  >
+                    Set to Development Url
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setCustomApiUrl('https://ais-pre-dzyvhzwunjmz4ap4pswblq-119708154136.asia-southeast1.run.app');
+                    }}
+                    className="px-2 py-1 bg-blue-50 hover:bg-blue-100 text-blue-700 rounded-[6px] border border-blue-200 text-[10px] font-semibold transition-all cursor-pointer"
+                  >
+                    Set to Shared/Preview Url
+                  </button>
+                </div>
+              </div>
+
               <div>
                 <label className="block text-[10px] font-bold text-slate-700 mb-1">
                   Custom Server URL Override
