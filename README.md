@@ -1,3 +1,7 @@
+# click the link to view the application :
+https://remix-remix-remix-remix-postman-to-pytest-migrato-453747708282.asia-southeast1.run.app
+
+
 <div align="center">
 <img width="1200" height="475" alt="GHBanner" src="https://ai.google.dev/static/site-assets/images/share-ais-513315318.png" />
 </div>
@@ -6,7 +10,7 @@
 
 This contains everything you need to run your app locally.
 
-View your app in AI Studio: https://ai.studio/apps/5845ec60-fb24-4450-9e87-eba7b8871abd
+
 
 ## Run Locally
 
